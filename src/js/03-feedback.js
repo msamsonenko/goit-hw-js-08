@@ -26,13 +26,12 @@ function populateForm() {
   const formInputsData = localStorage.getItem(STORAGE_KEY);
 
   if (formInputsData) {
-    const {
-      formElements: { email, message },
-    } = event.currentTarget;
+    const input = document.querySelector('input');
+    const textarea = document.querySelector('textarea');
 
-    const data = JSON.parse(formInputsData);
+    const { email, message } = JSON.parse(formInputsData);
 
-    email.value = data.email;
-    message.value = data.message;
+    input.value = email;
+    textarea.value = message;
   }
 }
