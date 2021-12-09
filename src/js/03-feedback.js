@@ -2,7 +2,7 @@ import throttle from 'lodash.throttle';
 //storage key name
 const STORAGE_KEY = 'feedback-form-state';
 //an empty object for storing input fields values
-const userMessage = {};
+let userMessage = {};
 //get access to to form elelement
 const form = document.querySelector('.feedback-form');
 //handling form input values update
@@ -18,6 +18,7 @@ function handleFormSubmit(e) {
   e.preventDefault();
   console.log(JSON.parse(localStorage.getItem(STORAGE_KEY)));
   e.currentTarget.reset();
+  userMessage = {};
   localStorage.clear();
 }
 //on input value update, creates/updates key/value of the userMessage obj,
